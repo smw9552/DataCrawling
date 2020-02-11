@@ -13,9 +13,8 @@ class MeSH_Reader:
 
         DescriptorRecord_tag = root.findall("DescriptorRecord")
 
-        for record in range(0, len(DescriptorRecord_tag)):
+        for record in range(0, 2): #len(DescriptorRecord_tag)):
             for ai in DescriptorRecord_tag[record].iter('Term'):
-
                 Temp_term.append(ai.findtext('String'))
             MeSH_Term_list.append(Temp_term)
 

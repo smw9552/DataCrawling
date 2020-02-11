@@ -16,9 +16,8 @@ All_MeSH_Name = []
 All_MeSH_Terms = MeSH_r.get_All_MeSH_Terms(FilePath, FileName)
 #All_MeSH_Unique_ID = MeSH_r.get_All_MeSH_UniqueID(FilePath, FileName)
 
-print(All_MeSH_Terms)
-#print(All_MeSH_Unique_ID)
 
+print(All_MeSH_Terms)
 
 #Final_MeSH_Unique_ID = MeSH_f.find_MeSH_Diseaes_Name_To_ID(Test, All_MeSH_Name, All_MeSH_Unique_ID)
 
