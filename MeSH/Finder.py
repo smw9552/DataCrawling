@@ -1,10 +1,10 @@
 
 class MeSH_Finder:
 
+    # MeSH name 넣고 id 추출
     def find_MeSH_Diseaes_Name_To_ID(self, Keyword, MeSH_Name_list, MeSH_ID_list):
 
         Find_Unique_ID = []
-
 
         for word in Keyword:
 
