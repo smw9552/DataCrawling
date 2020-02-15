@@ -47,7 +47,7 @@ class MeSH_Finder:
 
 
 
-    # Keyword를 MeSH total name과 비교하여 Unique id 추출
+    # Keyword를 MeSH xml total name과 비교하여 Unique id 추출
     def find_MeSH_Diseaes_Name_To_ID(self, Keyword, MeSH_xml_total_Name_list, MeSH_xml_total_All_ID_list):
 
         Find_Unique_ID = []
