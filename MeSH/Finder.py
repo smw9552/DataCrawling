@@ -47,19 +47,18 @@ class MeSH_Finder:
 
 
 
-    # Keyword를 MeSH Heading name과 비교하여 Unique id 추출
-    def find_MeSH_Diseaes_Name_To_ID(self, Keyword, MeSH_All_Name_list, MeSH_All_ID_list):
+    # Keyword를 MeSH total name과 비교하여 Unique id 추출
+    def find_MeSH_Diseaes_Name_To_ID(self, Keyword, MeSH_xml_total_Name_list, MeSH_xml_total_All_ID_list):
 
         Find_Unique_ID = []
 
         for word in Keyword:
-            #print(word)
 
             try:
-               #if (MeSH_All_Name_list.__contains__(str(word).lower())):
-                Find_Unique_ID.append(MeSH_All_ID_list[MeSH_All_Name_list.index(str(word).lower().strip())])
+                Find_Unique_ID.append(MeSH_xml_total_All_ID_list[MeSH_xml_total_Name_list.index(str(word).lower().strip())])
+
             except ValueError:
-                Find_Unique_ID.append(str("None_ID"))
+                Find_Unique_ID.append(str("None"))
 
         return Find_Unique_ID
 
