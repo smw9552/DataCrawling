@@ -14,10 +14,10 @@ FilePath = "C:\\Users\\Seomyungwon\\DataCrawling\\Data\\File\\"
 FileName = "MeSH_xml_2020.xml"
 
 DataFilePath = "C:\\Users\\Seomyungwon\\DataCrawling\\Data\\File\\"
-DataFileName = "KEGG_Disease_Name.txt"
+DataFileName = "OTP_Disease_Name.txt"
 
 OutputFilePath = "C:\\Users\\Seomyungwon\\DataCrawling\\Data\\File\\"
-OutputFileName = "KEGG_Unique_ID_mapping_result.txt"
+OutputFileName = "OTP_Unique_ID_mapping_result.txt"
 
 
 MeSH_All_Name = MeSH_r.get_All_MeSH_Concept_Term_Names(FilePath, FileName)
@@ -25,7 +25,6 @@ MeSH_Unique_ID = MeSH_r.get_All_MeSH_Unique_ID_2020(FilePath, FileName)
 
 #Input disease name 정보
 Input_Disease_Name = Data_r.read_Disease_Name_txt(DataFilePath, DataFileName)
-
 
 #Test 데이터
 #Test = ["liver diseases", "CANCER", "Neoplasms","Seo"]
