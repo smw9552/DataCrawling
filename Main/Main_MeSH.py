@@ -23,6 +23,10 @@ OutputFileName = "OTP_Unique_ID_mapping_result.txt"
 MeSH_All_Name = MeSH_r.get_All_MeSH_Concept_Term_Names(FilePath, FileName)
 MeSH_Unique_ID = MeSH_r.get_All_MeSH_Unique_ID_2020(FilePath, FileName)
 
+
+print(len(MeSH_All_Name))
+print(len(MeSH_Unique_ID))
+
 #Input disease name 정보
 Input_Disease_Name = Data_r.read_Disease_Name_txt(DataFilePath, DataFileName)
 
@@ -33,7 +37,7 @@ Input_Disease_Name = Data_r.read_Disease_Name_txt(DataFilePath, DataFileName)
 
 
 # Unique ID mapping
-MeSH_Unique_ID_Mapping = MeSH_f.find_MeSH_Disease_Cocept_Term_To_ID(Input_Disease_Name, MeSH_All_Name, MeSH_Unique_ID)
+#MeSH_Unique_ID_Mapping = MeSH_f.find_MeSH_Disease_Cocept_Term_To_ID(Input_Disease_Name, MeSH_All_Name, MeSH_Unique_ID)
 
 # File write
-Data_w.write_disease_to_id_file_txt(OutputFilePath, OutputFileName, Input_Disease_Name, MeSH_Unique_ID_Mapping)
+#Data_w.write_disease_to_id_file_txt(OutputFilePath, OutputFileName, Input_Disease_Name, MeSH_Unique_ID_Mapping)
