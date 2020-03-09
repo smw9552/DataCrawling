@@ -10,14 +10,14 @@ Data_r = Data_Reader()
 MeSH_f = MeSH_Finder()
 Data_w = Data_Writer()
 
-FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\MeSH\\"
-FileName = "desc2002.xml"
+FilePath = "C:\\Users\\Seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\MeSH\\"
+FileName = "desc2005.xml"
 
-DataFilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\MeSH_mapping\\Input\\"
-DataFileName = "OTP_disease_list.txt"
+DataFilePath = "C:\\Users\\Seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\MeSH_mapping\\Input\\"
+DataFileName = "DisGeNet_Disease_list.txt"
 
-OutputFilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\MeSH_mapping\\Output\\"
-OutputFileName = "KEGG_Unique_ID_mapping_result_2002.txt"
+OutputFilePath = "C:\\Users\\Seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\MeSH_mapping\\Output\\"
+OutputFileName = "DisGeNet_Unique_ID_mapping_result_2005.txt"
 
 
 MeSH_All_Name = MeSH_r.get_All_MeSH_Concept_Term_Names(FilePath, FileName)
