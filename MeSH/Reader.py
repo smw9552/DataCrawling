@@ -60,8 +60,8 @@ class MeSH_Reader:
         return MeSH_All_Concept_Term_Name_list
 
 
-    # MeSH Heading name 2020에 해당되는 Unique id만 추출
-    def get_All_MeSH_Unique_ID_2020(self, FilePath, FileName):
+    # Input MeSH 파일 내에 있는 MeSH Heading의 해당되는 Unique id만 추출
+    def get_All_MeSH_Unique_ID(self, FilePath, FileName):
 
         doc = ET.parse(FilePath+FileName)
         root = doc.getroot()
