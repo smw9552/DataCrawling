@@ -11,13 +11,13 @@ MeSH_f = MeSH_Finder()
 Data_w = Data_Writer()
 
 FilePath = "C:\\Users\\Seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\MeSH\\"
-FileName = "desc2005.xml"
+FileName = "desc2020.xml"
 
 DataFilePath = "C:\\Users\\Seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\MeSH_mapping\\Input\\"
 DataFileName = "DisGeNet_Disease_list.txt"
 
 OutputFilePath = "C:\\Users\\Seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\MeSH_mapping\\Output\\"
-OutputFileName = "DisGeNet_Unique_ID_mapping_result_2005.txt"
+OutputFileName = "DisGeNet_Unique_ID_mapping_result_2020.txt"
 
 
 MeSH_All_Name = MeSH_r.get_All_MeSH_Concept_Term_Names(FilePath, FileName)
