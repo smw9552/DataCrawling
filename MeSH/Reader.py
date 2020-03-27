@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 
 class Data_Reader:
 
-    def read_Disease_Name_txt(self, DataFilePath, DataFileName):
+    def read_Disease_Name_txt(self, DataFilePath, DataFileName, col_num):
 
         f = open(DataFilePath+DataFileName, 'r')
 
@@ -13,7 +13,7 @@ class Data_Reader:
             if not line:break
             new_line = line.split("\t")
 
-            Disease_Name.append(str(new_line[0]).lower().strip())
+            Disease_Name.append(str(new_line[col_num]).lower().strip())
 
         return Disease_Name
 

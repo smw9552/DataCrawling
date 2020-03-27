@@ -10,14 +10,14 @@ Data_r = Data_Reader()
 MeSH_f = MeSH_Finder()
 Data_w = Data_Writer()
 
-FilePath = "C:\\Users\\Seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\MeSH\\"
+FilePath = "C:\\Users\\seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\DB_data_process\\MeSH\\MeSH_raw\\"
 FileName = "desc2020.xml"
 
-DataFilePath = "C:\\Users\\Seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\MeSH_mapping\\Input\\"
-DataFileName = "DisGeNet_Disease_list.txt"
+DataFilePath = "C:\\Users\\seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\DB_data_process\\MeSH_mapping\\Input\\"
+DataFileName = "DisGeNet_Disease_nonMapping_list.txt"
 
-OutputFilePath = "C:\\Users\\Seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\MeSH_mapping\\Output\\"
-OutputFileName = "DisGeNet_Unique_ID_mapping_result_2020.txt"
+OutputFilePath = "C:\\Users\\seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\DB_data_process\\MeSH_mapping\\Output\\"
+OutputFileName = "DisGeNet_nonMapping_data_Unique_ID_mapping_result_2020.txt"
 
 
 MeSH_All_Name = MeSH_r.get_All_MeSH_Concept_Term_Names(FilePath, FileName)
@@ -28,7 +28,7 @@ print(len(MeSH_All_Name))
 print(len(MeSH_Unique_ID))
 
 #Input disease name 정보
-Input_Disease_Name = Data_r.read_Disease_Name_txt(DataFilePath, DataFileName)
+Input_Disease_Name = Data_r.read_Disease_Name_txt(DataFilePath, DataFileName, 0)
 
 #Test 데이터
 #Test = ["liver diseases", "CANCER", "Neoplasms","Seo"]
