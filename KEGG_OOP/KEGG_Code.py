@@ -1,5 +1,5 @@
 from urllib.request import urlopen
-from urllib.request import HTTPError
+from urllib.error import HTTPError
 import socket
 
 class KEGG_Code:

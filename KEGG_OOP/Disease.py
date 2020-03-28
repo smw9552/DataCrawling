@@ -1,7 +1,6 @@
 from urllib.request import urlopen
-from urllib.request import HTTPError
+from urllib.error import HTTPError
 import urllib.request
-import requests
 import socket
 from collections import OrderedDict
 
