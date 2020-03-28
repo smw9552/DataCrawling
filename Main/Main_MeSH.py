@@ -14,10 +14,10 @@ FilePath = "C:\\Users\\seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\
 FileName = "desc2020.xml"
 
 DataFilePath = "C:\\Users\\seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\DB_data_process\\MeSH_mapping\\Input\\"
-DataFileName = "DisGeNet_Disease_nonMapping_list.txt"
+DataFileName = "DisGeNet_Disease_nonMapping_list7.txt"
 
 OutputFilePath = "C:\\Users\\seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\DB_data_process\\MeSH_mapping\\Output\\"
-OutputFileName = "DisGeNet_nonMapping_data_Unique_ID_mapping_result_2020.txt"
+OutputFileName = "DisGeNet_nonMapping_data_Unique_ID_mapping_result_2020_7.txt"
 
 
 MeSH_All_Name = MeSH_r.get_All_MeSH_Concept_Term_Names(FilePath, FileName)
