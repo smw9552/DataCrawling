@@ -3,7 +3,7 @@ from socket import socket
 from urllib.error import HTTPError
 
 InputFilePath = "C:\\Users\\seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\DB_data_process\\KEGG_DB\\KEGG_Drug\\"
-InputFileName = "Drug_List.txt"
+InputFileName = "Drug_List_temp.txt"
 
 OutputFilePath = "C:\\Users\\seomy\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\Data\\DB_data_process\\KEGG_DB\KEGG_Drug\\SDF\\"
 
