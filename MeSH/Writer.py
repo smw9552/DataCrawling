@@ -23,8 +23,8 @@ class Data_Writer:
         f = open(OutputFilePath + OutputFileName, 'w')
 
         for ai in range(0, len(All_MeSH_Term_list)):
-
-            Final_data_string = Final_data_string + str(All_MeSH_Term_list[ai] + "\t" + str(All_MeSH_Unique_ID_list[ai] + "\n"))
+            for term in All_MeSH_Term_list[ai]:
+                Final_data_string = Final_data_string + str(term) + "\t" + str(All_MeSH_Unique_ID_list[ai]) + "\n"
 
         f.write(Final_data_string)
         f.close()
