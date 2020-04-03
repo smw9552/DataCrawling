@@ -230,6 +230,7 @@ class Disease:
     def get_Disease_BRITE_Info(self, Disease_code):
 
         DISEASE_INFO_URL = "http://rest.kegg.jp/get/" + Disease_code
+
         BRITE_Info_List = []
 
         key = False
@@ -248,11 +249,28 @@ class Disease:
             req = urllib.request.Request(DISEASE_INFO_URL, headers=headers)
             response = urllib.request.urlopen(req).readlines()
 
-            print(response)
-            #for info in response:
+            for info in response:
+                if str(info).__contains__("b'BRITE       "):
+                    key = True
 
-                #if str(info).__contains__()
+                if str(info).__contains__("b'PATHWAY     "):
+                    key = False
+                if str(info).__contains__("b'NETWORK     "):
+                    key = False
+                if str(info).__contains__("b'GENE        "):
+                    key = False
+                if str(info).__contains__("b'DBLINKS     "):
+                    key = False
+                if str(info).__contains__("b'REFERENCE   "):
+                    key = False
 
+                if key:
+                    #print(str(info).replace('\\n',''))
+                    temp = str(info).replace("b'","")\
+                        .replace('\\n','')\
+                        .replace('BRITE',"")\
+                        .replace("'","")
+                    BRITE_Info_List.append(temp.strip())
 
         except HTTPError as e:
             print("HTTPError")
@@ -273,7 +291,7 @@ class Disease:
     #Disease code로부터 관련 MeSH id 정보 추출
     def get_Disease_MeSH_id_Info(self, Disease_code):
 
-        DISEASE_INFO_URL = "http://rest.kegg.jp/get/" + Disease_code
+        DISEASE_INFO_URL = "http://rest.kegg.jp/get/" + str(Disease_code)
 
         Temp_List = []
         MeSH_id_Info_List = []
