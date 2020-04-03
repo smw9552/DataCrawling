@@ -4,7 +4,7 @@ class Data_Writer:
 
         Final_data_string = "Disease Name" + "\t" + "MeSH_Unique_ID" + "\n"
 
-        f = open(OutputFilePath+OutputFileName, 'w')
+        f = open(OutputFilePath+OutputFileName, 'w', -1, "utf-8")
 
         for ai in range(0, len(Input_Name_list)):
 
@@ -20,7 +20,7 @@ class Data_Writer:
 
         Final_data_string = 'MeSH_Term' + "\t" + "MeSH_Unique_ID" + "\n"
 
-        f = open(OutputFilePath + OutputFileName, 'w')
+        f = open(OutputFilePath + OutputFileName, 'w', -1, "utf-8")
 
         for ai in range(0, len(All_MeSH_Term_list)):
             for term in All_MeSH_Term_list[ai]:
