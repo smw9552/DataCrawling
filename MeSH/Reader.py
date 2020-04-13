@@ -17,11 +17,10 @@ class Data_Reader:
 
         return Disease_Name
 
-
 class MeSH_Reader:
 
-    # MeSH에서 제공하는 전체 MeSH heading에서 해당 되는 concept 정보, Term 정보 모두 합쳐서 정리
-    # 정보를 합쳐서 name으로 검색하는 경우 모든 정보를 놓치지 않고 정리하기 위해 사용
+    # MeSH에서 제공하는 전체 MeSH heading에서 해당 되는 name 정보, concept 정보, Term 정보 모두 합쳐서 정리
+    # 정보를 합쳐서 name으로 검색하는 경우 name과 관련된 모든 정보를 놓치지 않고 정리하기 위해 사용
     def get_All_MeSH_Concept_Term_Names(self, FilePath, FileName):
 
         doc = ET.parse(FilePath+FileName)
@@ -30,16 +29,17 @@ class MeSH_Reader:
         DescriptorRecord_tag = root.findall("DescriptorRecord")
 
         MeSH_All_Concept_Term_Name_list = []
+        Temp_name = []
         Temp_concept = []
         Temp_term = []
 
         for record_cnt in range(0, len(DescriptorRecord_tag)):
 
+            for name in DescriptorRecord_tag[record_cnt].iter("DescriptorName"):
+                Temp_name.append(str(name.findtext("String")).lower().strip())
+
             for concept in DescriptorRecord_tag[record_cnt].iter("ConceptName"):
                 Temp_concept.append(str(concept.findtext("String")).lower().strip())
-
-            #print("Concept list")
-            #print(Temp_concept)
 
             for term in DescriptorRecord_tag[record_cnt].iter("Term"):
                 Temp_term.append(str(term.findtext("String")).lower().strip())
@@ -47,7 +47,7 @@ class MeSH_Reader:
             #print("Term list")
             #print(Temp_term)
 
-            Temp = Temp_concept + Temp_term
+            Temp = Temp_name + Temp_concept + Temp_term
             # 중복 제거
             Temp = list(set(Temp))
 
@@ -130,5 +130,64 @@ class MeSH_Reader:
             if str(Name.findtext("DescriptorUI")) != str("None"):
                 MeSH_Unique_ID_list.append(Name.findtext("DescriptorUI"))
 
+
+        return MeSH_Unique_ID_list
+
+
+    # MeSH supplementary data에서 제공하는 전체 MeSH heading에서 해당 되는 name 정보, concept 정보, Term 정보 모두 합쳐서 정리
+    # 정보를 합쳐서 name으로 검색하는 경우 name과 관련된 모든 정보를 놓치지 않고 정리하기 위해 사용
+    def get_All_MeSH_Concept_Term_Names_supp(self, FilePath, FileName):
+
+        doc = ET.parse(FilePath + FileName)
+        root = doc.getroot()
+
+        DescriptorRecord_tag = root.findall("SupplementalRecord")
+
+        MeSH_All_Concept_Term_Name_list = []
+        Temp_name = []
+        Temp_concept = []
+        Temp_term = []
+
+        for record_cnt in range(0, len(DescriptorRecord_tag)):
+
+            for name in DescriptorRecord_tag[record_cnt].iter("SupplementalRecordName"):
+                Temp_name.append(str(name.findtext("String")).lower().strip())
+
+            for concept in DescriptorRecord_tag[record_cnt].iter("ConceptName"):
+                Temp_concept.append(str(concept.findtext("String")).lower().strip())
+
+            for term in DescriptorRecord_tag[record_cnt].iter("Term"):
+                Temp_term.append(str(term.findtext("String")).lower().strip())
+
+            # print("Term list")
+            # print(Temp_term)
+
+            Temp = Temp_name + Temp_concept + Temp_term
+            # 중복 제거
+            Temp = list(set(Temp))
+
+            MeSH_All_Concept_Term_Name_list.append(Temp)
+
+            # 초기화 작업
+            Temp_concept = []
+            Temp_term = []
+
+        return MeSH_All_Concept_Term_Name_list
+
+
+    def get_All_MeSH_Unique_ID_supp(self, FilePath, FileName):
+
+        doc = ET.parse(FilePath+FileName)
+        root = doc.getroot()
+
+        MeSH_Unique_ID_list = []
+
+        DescriptorRecord_tag = root.findall("SupplementalRecord")
+
+        for record_cnt in range(0, len(DescriptorRecord_tag)):
+
+            Unique_ID = DescriptorRecord_tag[record_cnt].findtext("SupplementalRecordUI")
+
+            MeSH_Unique_ID_list.append(Unique_ID)
 
         return MeSH_Unique_ID_list
