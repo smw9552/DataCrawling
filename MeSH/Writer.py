@@ -1,6 +1,5 @@
 class Data_Writer:
 
-
     def write_chemical_to_id_file_txt(self, OutputFilePath, OutputFileName, Input_Name_list, MeSH_Unique_ID_list):
 
         Final_data_string = "Chemical_Name" + "\t" + "MeSH_Unique_ID" + "\n"
