@@ -22,15 +22,20 @@ OutputFileName_supp = ""
 
 print ("Load data")
 
-#Read MeSH_desc xml_data
+# Read MeSH_desc xml_data
 MeSH_All_Name_desc = MeSH_r.get_All_MeSH_Concept_Term_Names(MeSH_FilePath, MeSH_FileName_desc)
 MeSH_Unique_ID_desc = MeSH_r.get_All_MeSH_Unique_ID(MeSH_FilePath, MeSH_FileName_desc)
 
-#Input name data
+# Input name data
 Input_Name = Data_r.read_Txt(DataFilePath, DataFileName, 0)
 
-#Unique ID mapping
-MeSH_Unique_ID_Mapping_desc = MeSH_f.
+# Unique ID mapping
+MeSH_Unique_ID_Mapping_desc = MeSH_f.find_MeSH_Cocept_Term_To_ID(Input_Name, MeSH_All_Name_desc, MeSH_Unique_ID_desc)
+
+print ("Unique ID mapping")
+
+# File write
+Data_w.write_disease_to_id_file_txt()
 
 
 

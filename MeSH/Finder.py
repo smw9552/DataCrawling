@@ -1,7 +1,7 @@
 class MeSH_Finder:
 
     # Keyword를 MeSH concept, term과 모두 비교하여 Unique id 추출
-    def find_MeSH_Cocept_Term_To_ID(self, Keyword, MeSH_All_Name_list, MeSH_Unique_ID_list):
+    def find_MeSH_Chemical_Cocept_Term_To_ID(self, Keyword, MeSH_All_Name_list, MeSH_Unique_ID_list):
 
         Final_Unique_ID = []
         Temp = []
