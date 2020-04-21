@@ -27,7 +27,10 @@ MeSH_All_Name_desc = MeSH_r.get_All_MeSH_Concept_Term_Names(MeSH_FilePath, MeSH_
 MeSH_Unique_ID_desc = MeSH_r.get_All_MeSH_Unique_ID(MeSH_FilePath, MeSH_FileName_desc)
 
 #Input name data
-Input_Name = Data_r.read_Disease_Name_txt()
+Input_Name = Data_r.read_Txt(DataFilePath, DataFileName, 0)
+
+#Unique ID mapping
+MeSH_Unique_ID_Mapping_desc = MeSH_f.
 
 
 
