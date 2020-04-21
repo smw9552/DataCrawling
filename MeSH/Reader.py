@@ -2,6 +2,21 @@ import xml.etree.ElementTree as ET
 
 class Data_Reader:
 
+    def read_Txt(self, DataFilePath, DataFileName, col_num):
+
+        f = open(DataFilePath+DataFileName, 'r')
+
+        Data = []
+
+        while True:
+            line = f.readline()
+            if not line:break
+            new_line = line.split("\t")
+
+            Data.append(str(new_line[col_num]).lower().strip())
+
+        return Data
+
     def read_Disease_Name_txt(self, DataFilePath, DataFileName, col_num):
 
         f = open(DataFilePath+DataFileName, 'r')

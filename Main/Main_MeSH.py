@@ -55,7 +55,7 @@ MeSH_Unique_ID_Mapping_supp = MeSH_f.find_MeSH_Disease_Cocept_Term_To_ID(Input_D
 print("ID mapping")
 
 # File write
-Data_w.write_disease_to_id_file_txt(OutputFilePath, OutputFileName_desc, Input_Disease_Name, MeSH_Unique_ID_Mapping_desc)
+#Data_w.write_disease_to_id_file_txt(OutputFilePath, OutputFileName_desc, Input_Disease_Name, MeSH_Unique_ID_Mapping_desc)
 Data_w.write_disease_to_id_file_txt(OutputFilePath, OutputFileName_supp, Input_Disease_Name, MeSH_Unique_ID_Mapping_supp)
 
 print("write file")
