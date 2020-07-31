@@ -1,4 +1,5 @@
 import socket
+import urllib
 from urllib.request import urlretrieve
 
 #Test download cid:2244
@@ -79,5 +80,8 @@ except TimeoutError as e:
 
 except ConnectionResetError as e:
     print("Conncetion error")
+
+except urllib.error.URLError as e:
+    print("URLError")
 
 print("download completed")
