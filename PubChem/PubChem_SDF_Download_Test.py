@@ -1,8 +1,10 @@
+import socket
 from urllib.request import urlretrieve
 
 #Test download cid:2244
 #urlretrieve("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2244/SDF", "C:\\Users\\hkjin\\Desktop\\Python_Calculation\\test.sdf")
 
+"""
 #Read biocide CAS-CID number file
 #[0]: Biocide CAS
 #[1]: Biocide CID
@@ -38,15 +40,44 @@ for ai in range(0, len(Biocide_CAS)):
     print(str("Download files: ") + str(Biocide_CAS[ai]))
 
 print("download completed")
-
+"""
 
 ###############################################
 # Compound sdf of AOP target protein download #
 ###############################################
 
 CID = []
-SDF_OutputFilePath = ""
+InputFilePath = "C:\\Users\\hkjin\\Desktop\\Python_Calculation\\"
+InputFileName = "TLR4_Inactive_CID_7.txt"
+SDF_OutputFilePath = "C:\\Users\\hkjin\\Desktop\\Python_Calculation\\TLR4_SDF\\Inactive\\"
 
-f = open("C")
+f = open(InputFilePath + InputFileName, "r")
 
 
+while True:
+    line = f.readline()
+    if not line:break
+    new_line = line.split("\t")
+    CID.append(new_line[0].replace('"','').strip())
+
+print("Read CID of bioassay")
+
+try:
+
+    for ai in range(0, len(CID)):
+        #socket.setdefaulttimeout(1000)
+        urlretrieve("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/" + str(CID[ai]) + "/SDF",
+                    SDF_OutputFilePath + str(CID[ai] + ".SDF"))
+
+        print(str("Download files: ") + str(CID[ai]))
+
+except socket.timeout:
+    print("timeout")
+
+except TimeoutError as e:
+    print("Timeout")
+
+except ConnectionResetError as e:
+    print("Conncetion error")
+
+print("download completed")
