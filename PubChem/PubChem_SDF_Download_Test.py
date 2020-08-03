@@ -66,7 +66,7 @@ print("Read CID of bioassay")
 try:
 
     for ai in range(0, len(CID)):
-        #socket.setdefaulttimeout(1000)
+        socket.setdefaulttimeout(1000)
         urlretrieve("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/" + str(CID[ai]) + "/SDF",
                     SDF_OutputFilePath + str(CID[ai] + ".SDF"))
 
@@ -81,7 +81,5 @@ except TimeoutError as e:
 except ConnectionResetError as e:
     print("Conncetion error")
 
-except urllib.error.URLError as e:
-    print("URLError")
 
 print("download completed")
