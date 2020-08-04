@@ -63,23 +63,23 @@ while True:
 
 print("Read CID of bioassay")
 
-try:
 
-    for ai in range(0, len(CID)):
+for ai in range(0, len(CID)):
+
+    try:
+
         socket.setdefaulttimeout(1000)
-        urlretrieve("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/" + str(CID[ai]) + "/SDF",
-                    SDF_OutputFilePath + str(CID[ai] + ".SDF"))
+        urlretrieve("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/" + str(CID[ai]) + "/SDF", SDF_OutputFilePath + str(CID[ai] + ".SDF"))
 
         print(str("Download files: ") + str(CID[ai]))
 
-except socket.timeout:
-    print("timeout")
+    except socket.timeout:
+        print("timeout")
 
-except TimeoutError as e:
-    print("Timeout")
+    except TimeoutError as e:
+        print("Timeout")
 
-except ConnectionResetError as e:
-    print("Conncetion error")
-
+    except ConnectionResetError as e:
+        print("Conncetion error")
 
 print("download completed")
