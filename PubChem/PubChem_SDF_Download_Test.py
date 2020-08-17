@@ -1,5 +1,6 @@
 import socket
 import urllib
+from urllib.error import HTTPError
 from urllib.request import urlretrieve
 
 #Test download cid:2244
@@ -27,7 +28,7 @@ while True:
     if not line:break
     new_line = line.split("\t")
     Biocide_CAS.append(new_line[0].replace('"','').strip())
-    Biocide_CID.append(new_line[1].replace('"','').strip())
+    Biocide_CID.append(new_line[1].replace('"','').strip())컴퓨터
 
 print("Read Biocide CID")
 
@@ -49,8 +50,8 @@ print("download completed")
 
 CID = []
 InputFilePath = "C:\\Users\\hkjin\\Desktop\\Python_Calculation\\"
-InputFileName = "TLR4_Inactive_CID_7.txt"
-SDF_OutputFilePath = "C:\\Users\\hkjin\\Desktop\\Python_Calculation\\TLR4_SDF\\Inactive\\"
+InputFileName = "PPAR-g_Inactive_2.txt"
+SDF_OutputFilePath = "C:\\Users\\hkjin\\Desktop\\Python_Calculation\\PPAR-g_SDF\\Inactive\\"
 
 f = open(InputFilePath + InputFileName, "r")
 
@@ -68,7 +69,7 @@ for ai in range(0, len(CID)):
 
     try:
 
-        socket.setdefaulttimeout(1000)
+        #socket.setdefaulttimeout(1000)
         urlretrieve("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/" + str(CID[ai]) + "/SDF", SDF_OutputFilePath + str(CID[ai] + ".SDF"))
 
         print(str("Download files: ") + str(CID[ai]))
@@ -81,5 +82,8 @@ for ai in range(0, len(CID)):
 
     except ConnectionResetError as e:
         print("Conncetion error")
+
+    except HTTPError as e:
+        print("HTTP Error")
 
 print("download completed")
