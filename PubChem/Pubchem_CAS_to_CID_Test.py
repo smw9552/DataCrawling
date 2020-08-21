@@ -16,25 +16,19 @@ while True:
 
 print("Read CAS number files")
 
-print(len(Data))
-
+#CAS number check
 for d in Data:
     if(d.__contains__("-")):
         Biocide_CAS.append(d)
-        #print(d)
+
     else:
         Biocide_Err.append(d)
 
-print(str("CAS: ") + str(len(Biocide_CAS)))
-print(str("Err: ") + str(len(Biocide_Err)))
-
-
 Pubchem_CID = []
-Biocide_CAS_of_CID = []
 
 for cas_num in Biocide_CAS:
 
-    Label = False
+    Label = True
 
     print(str("Input CAS number: ") + str(cas_num).strip())
 
@@ -66,35 +60,23 @@ for cas_num in Biocide_CAS:
             #      replace(">","").
             #      replace("\\n","").strip())
 
-            Biocide_CAS_of_CID.append(cas_num)
-
-            Label = True
+            Label = False
             break
 
-    if(Label == False):
-
-        Biocide_CAS_of_CID.append("None")
-
+    if(Label):
+        Pubchem_CID.append("None")
 
 
 
-
-
-
-
-print(len(Biocide_CAS_of_CID))
 #print(len(Biocide_CAS))
 #print(len(Pubchem_CID))
 
-for info in Biocide_CAS_of_CID:
-    print(info)
 
-"""
 print("Extract CID number")
 
-f_out = open("C:\\Users\\hkjin\\Desktop\\Python_Calculation\\Extract_CAS_CID_output_new_v2.txt", "w")
+f_out = open("C:\\Users\\hkjin\\Desktop\\Python_Calculation\\Extract_CAS_CID_output.txt", "w")
 
-#Data = str("CAS") + "\t" + str("PubChem_CID") + "\n"
+Data = str("Biocide_CAS") + "\t" + str("PubChem_CID") + "\n"
 
 #for ai in range(0, len(Biocide_CAS)):
 
@@ -103,11 +85,8 @@ f_out = open("C:\\Users\\hkjin\\Desktop\\Python_Calculation\\Extract_CAS_CID_out
 
 for bi in range(0, len(Pubchem_CID)):
 
-    Data = str(Biocide_CAS_of_CID[bi]) + "\t" + str(Pubchem_CID[bi]) + "\n"
+    Data = Data + str(Biocide_CAS[bi]) + "\t" + str(Pubchem_CID[bi]) + "\n"
     f_out.write(Data)
 
 f_out.close()
 print("Write files")
-
-
-"""
