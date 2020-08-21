@@ -6,7 +6,6 @@ from urllib.request import urlretrieve
 #Test download cid:2244
 #urlretrieve("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2244/SDF", "C:\\Users\\hkjin\\Desktop\\Python_Calculation\\test.sdf")
 
-"""
 #Read biocide CAS-CID number file
 #[0]: Biocide CAS
 #[1]: Biocide CID
@@ -28,7 +27,7 @@ while True:
     if not line:break
     new_line = line.split("\t")
     Biocide_CAS.append(new_line[0].replace('"','').strip())
-    Biocide_CID.append(new_line[1].replace('"','').strip())컴퓨터
+    Biocide_CID.append(new_line[1].replace('"','').strip())
 
 print("Read Biocide CID")
 
@@ -42,8 +41,10 @@ for ai in range(0, len(Biocide_CAS)):
     print(str("Download files: ") + str(Biocide_CAS[ai]))
 
 print("download completed")
-"""
 
+
+
+"""
 ###############################################
 # Compound sdf of AOP target protein download #
 ###############################################
@@ -87,3 +88,4 @@ for ai in range(0, len(CID)):
         print("HTTP Error")
 
 print("download completed")
+"""

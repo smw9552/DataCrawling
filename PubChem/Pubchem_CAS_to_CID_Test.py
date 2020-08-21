@@ -6,7 +6,7 @@ Biocide_CAS = []
 Biocide_Err = []
 
 #read biocide compound CAS number file
-f = open("C:\\Users\\hkjin\\Desktop\\Python_Calculation\\Biocide_List_920_Test.txt", 'r')
+f = open("C:\\Users\\hkjin\\Desktop\\Python_Calculation\\Biocide_List_920.txt", 'r')
 
 while True:
     line = f.readline()
@@ -76,16 +76,11 @@ print("Extract CID number")
 
 f_out = open("C:\\Users\\hkjin\\Desktop\\Python_Calculation\\Extract_CAS_CID_output.txt", "w")
 
-Data = str("Biocide_CAS") + "\t" + str("PubChem_CID") + "\n"
+#Data = str("Biocide_CAS") + "\t" + str("PubChem_CID") + "\n"
 
-#for ai in range(0, len(Biocide_CAS)):
+for ai in range(0, len(Pubchem_CID)):
 
-#    Data = str(Biocide_CAS[ai]) + "\t" + str(Pubchem_CID[ai]) + "\n"
-#    f_out.write(Data)
-
-for bi in range(0, len(Pubchem_CID)):
-
-    Data = Data + str(Biocide_CAS[bi]) + "\t" + str(Pubchem_CID[bi]) + "\n"
+    Data = str(Biocide_CAS[ai]) + "\t" + str(Pubchem_CID[ai]) + "\n"
     f_out.write(Data)
 
 f_out.close()
