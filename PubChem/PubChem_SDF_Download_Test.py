@@ -17,8 +17,8 @@ from urllib.request import urlretrieve
 Biocide_CAS = []
 Biocide_CID = []
 InputFilePath = "C:\\Users\\hkjin\\Desktop\\Python_Calculation\\"
-InputFileName = "Extract_CAS_CID_output_new_v2.txt"
-SDF_OutputFilePath = "C:\\Users\\hkjin\\Desktop\\Python_Calculation\\Biocide_CID_SDF\\"
+InputFileName = "Extract_Biocide_296_CID_output.txt"
+SDF_OutputFilePath = "C:\\Users\\hkjin\\Desktop\\Python_Calculation\Biocide_296_sdf\\"
 
 f = open(InputFilePath + InputFileName, "r")
 
@@ -31,14 +31,23 @@ while True:
 
 print("Read Biocide CID")
 
+print(Biocide_CAS)
+print(Biocide_CID)
+
 #Pubchem SDF download
 
 for ai in range(0, len(Biocide_CAS)):
 
-    urlretrieve("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/" + str(Biocide_CID[ai]) + "/SDF",
-                SDF_OutputFilePath + str(Biocide_CAS[ai] + ".SDF"))
+    if (str(Biocide_CID[ai]) == "None"):
 
-    print(str("Download files: ") + str(Biocide_CAS[ai]))
+        print("None CID")
+
+    else:
+        urlretrieve("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/" + str(Biocide_CID[ai]) + "/SDF",
+                    SDF_OutputFilePath + str(Biocide_CAS[ai] + ".sdf"))
+
+        print(str("Download files: ") + str(Biocide_CAS[ai]))
+
 
 print("download completed")
 

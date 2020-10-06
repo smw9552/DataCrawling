@@ -6,7 +6,7 @@ Biocide_CAS = []
 Biocide_Err = []
 
 #read biocide compound CAS number file
-f = open("C:\\Users\\hkjin\\Desktop\\Python_Calculation\\Biocide_List_920.txt", 'r')
+f = open("C:\\Users\\hkjin\\Desktop\\Python_Calculation\\살생물제.txt", 'r')
 
 while True:
     line = f.readline()
@@ -41,6 +41,8 @@ for cas_num in Biocide_CAS:
         PubChem_line = CID_Info.readline()
         if not PubChem_line: break
 
+        #print(PubChem_line)
+
         if (str(PubChem_line).__contains__('''b'    <meta name="pubchem_uid_value"''')):
 
 
@@ -74,7 +76,7 @@ for cas_num in Biocide_CAS:
 
 print("Extract CID number")
 
-f_out = open("C:\\Users\\hkjin\\Desktop\\Python_Calculation\\Extract_CAS_CID_output.txt", "w")
+f_out = open("C:\\Users\\hkjin\\Desktop\\Python_Calculation\\880_살생물제_CID.txt", "w")
 
 #Data = str("Biocide_CAS") + "\t" + str("PubChem_CID") + "\n"
 
