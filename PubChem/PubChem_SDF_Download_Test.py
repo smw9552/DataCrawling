@@ -1,6 +1,6 @@
 import socket
 import urllib
-from urllib.error import HTTPError
+from urllib.error import HTTPError, URLError
 from urllib.request import urlretrieve
 
 #Test download cid:2244
@@ -14,11 +14,12 @@ from urllib.request import urlretrieve
 # Biocide sdf download #
 ########################
 
-Biocide_CAS = []
-Biocide_CID = []
-InputFilePath = "C:\\Users\\hkjin\\Desktop\\Python_Calculation\\"
-InputFileName = "Extract_Biocide_296_CID_output.txt"
-SDF_OutputFilePath = "C:\\Users\\hkjin\\Desktop\\Python_Calculation\Biocide_296_sdf\\"
+Chemical_CID = []
+CAS = []
+#Chemical_activity = []
+InputFilePath = "C:\\Users\\hkjin\\Desktop\\Test\\"
+InputFileName = "CID.txt"
+SDF_OutputFilePath = "C:\\Users\\hkjin\\Desktop\\Test\\SDF\\"
 
 f = open(InputFilePath + InputFileName, "r")
 
@@ -26,28 +27,42 @@ while True:
     line = f.readline()
     if not line:break
     new_line = line.split("\t")
-    Biocide_CAS.append(new_line[0].replace('"','').strip())
-    Biocide_CID.append(new_line[1].replace('"','').strip())
+    CAS.append(new_line[0].replace('"','').strip())
+    Chemical_CID.append(new_line[1].replace('"','').strip())
+    #Chemical_activity.append(new_line[1].replace('"','').strip())
 
 print("Read Biocide CID")
 
-print(Biocide_CAS)
-print(Biocide_CID)
+print(Chemical_CID)
+#print(Chemical_activity)
 
-#Pubchem SDF download
+    #Pubchem SDF download
+for ai in range(0, len(Chemical_CID)):
 
-for ai in range(0, len(Biocide_CAS)):
+    try:
 
-    if (str(Biocide_CID[ai]) == "None"):
+        if (str(Chemical_CID[ai]) == "None"):
 
-        print("None CID")
+            print("None CID")
 
-    else:
-        urlretrieve("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/" + str(Biocide_CID[ai]) + "/SDF",
-                    SDF_OutputFilePath + str(Biocide_CAS[ai] + ".sdf"))
+        else:
+            urlretrieve("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/" + str(Chemical_CID[ai]) + "/SDF",SDF_OutputFilePath + str(CAS[ai] + ".sdf"))
+            print(str("Download files: ") + str(Chemical_CID[ai]))
 
-        print(str("Download files: ") + str(Biocide_CAS[ai]))
+    except socket.timeout:
+        print("timeout")
 
+    except TimeoutError as e:
+        print("Timeout")
+
+    except ConnectionResetError as e:
+        print("Conncetion error")
+
+    except HTTPError as e:
+        print("HTTP Error")
+
+    except URLError as e:
+        print("URLError")
 
 print("download completed")
 
