@@ -5,6 +5,7 @@ import socket
 
 
 class Functional_Food:
+    #testing
 
     #COCONUT DB 내의 Function food ID로 접근하여 Name 정보 추출
     def get_Functional_Food_Name(self, ID):
